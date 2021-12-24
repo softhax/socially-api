@@ -23,7 +23,7 @@ router.post("/register",async (req,res)=>{
         const user = await newUser.save();
         res.status(200).json(user); //Response 200 means success
     }catch(err){
-        console.log(err);
+        res.status(500).json(err);
     }
 });
 
@@ -36,7 +36,7 @@ router.post("/login",async (req,res)=>{
         !validPassword && res.status(400).json("Incorrect Password !");
         res.status(200).json(user);
     } catch(err){
-        console.log(err);
+        res.status(500).json(err);
     }
 })
 
